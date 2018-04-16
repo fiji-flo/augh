@@ -1,0 +1,48 @@
+{
+  "manifest_version": 2,
+
+  "name": "augh",
+  "version": "0.0.1",
+
+  "description": "Author Unknown GitHub",
+  "homepage_url": "https://github.com/fiji-flo/augh/",
+
+  "applications": {
+    "gecko": {
+      "id": "flomerz@gmail.com"
+    }
+  },
+
+  "icons": {
+    "128": "icon.png"
+  },
+
+  "permissions": ["storage", "activeTab"],
+
+  "web_accessible_resources": [
+    "icon-inline.svg"
+  ],
+
+  "page_action": {
+    "browser_style": true,
+    "default_icon": {
+      "128": "icon.png"
+    },
+    "show_matches": ["https://github.com/*"],
+    "default_popup": "popup/manage.html"
+  },
+
+  "options_ui": {
+    "page": "options/options.html",
+    "browser_style": true
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["https://github.com/*"],
+      "run_at": "document_start",
+      "css": ["github/blind.css"],
+      "js": ["shared/utils.js", "github/common.js"]
+    }
+  ]
+}

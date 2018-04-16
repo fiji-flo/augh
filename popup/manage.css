@@ -1,0 +1,94 @@
+:root {
+  --box: 13px;
+  --border: 2px;
+  --width: calc(var(--border) * 2  + 2 * var(--box));
+  --height: calc(var(--border) * 2  + var(--box));
+}
+
+body {
+  font-size: 13px;
+  font-weight: 400;
+  color: #0c0c0d;
+  display: flex;
+  flex-direction: column;
+  border-color: #D7D7DB;
+  padding: 16px;
+  margin: 0px;
+  min-width: 200px;
+}
+
+header {
+  font-size: 17px;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+label {
+  position: relative;
+  height: 100%;
+  padding-left: calc(var(--width) + 10px);
+  margin-bottom: 0.5em;
+}
+
+label > i {
+  color: #737373;
+  font-size: 11px;
+  font-weight: 400;
+}
+
+label > input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: var(--width);
+  height: var(--height);
+  opacity: 0;
+  padding: 0px;
+  margin: 0px;
+}
+
+label > span {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  width: var(--width);
+  height: var(--height);
+  border-radius: var(--box);
+}
+
+label > span:before {
+  position: absolute;
+  content: "";
+  height: var(--box);
+  width: var(--box);
+  left: var(--border);
+  bottom: var(--border);
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+label input:checked ~ span {
+  background-color: #9400ff;
+}
+
+
+label input:checked ~ span:before {
+  transform: translateX(var(--box));
+}
+
+.disabled {
+  display: none;
+}
